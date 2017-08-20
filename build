@@ -1,0 +1,8 @@
+#/bin/bash -e
+rm -rf target
+npm install
+npm test
+npm run build
+cp serverless.yml target
+cd target
+sls deploy -v

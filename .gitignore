@@ -1,0 +1,9 @@
+src/**/*.js
+src/**/*.js.map
+target
+distribution
+dist
+node_modules
+.idea
+npm-debug*
+
