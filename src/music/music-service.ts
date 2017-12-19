@@ -25,7 +25,11 @@ export default class MusicService {
         let groupInfo = await this.getGroupInfo(oid);
         let otherOwners = new Set<string>();
         groupInfo.joinedGroups.forEach(group => otherOwners.add(group.owner));
-        let groupIn = (group) => groupInfo.joinedGroups.filter(g => g['actualGid'] === g).length > 0;
+        groupInfo.ownedGroups.forEach(group => group['others'].forEach(other => otherOwners.add(other.uid)));
+        let groupIn = (group) =>
+            groupInfo.joinedGroups.filter(g => g['actualGid'] === group && !g.invitationPending).length > 0 ||
+                groupInfo.ownedGroups.filter(g => g.gid === group).length > 0;
+
         let allMusic = [];
         let owners = Array.from(otherOwners.values());
         for(let i = 0;i<owners.length;i++){
