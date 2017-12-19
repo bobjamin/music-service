@@ -1,3 +1,5 @@
+**/*.DS_STORE
+.serverless
 src/**/*.js
 src/**/*.js.map
 target

@@ -5,7 +5,14 @@ export interface ApiGatewayEvent {
     headers: {[key: string]: string},
     pathParameters: {[key: string]: string},
     httpMethod: string,
-    path: string
+    path: string,
+    requestContext: {
+        authorizer: {
+            claims: {
+                'cognito:username': string
+            }
+        }
+    }
 }
 
 export interface ApiGatewayResponse {
@@ -15,5 +22,5 @@ export interface ApiGatewayResponse {
 }
 
 export interface ApiGatewayContext {
-    done: (error:Error, response: ApiGatewayResponse) => void;
+    done: (error:Error, response: ApiGatewayResponse) => void
 }

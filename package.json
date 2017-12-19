@@ -5,7 +5,10 @@
   "author": "Polaris",
   "license": "MIT",
   "dependencies": {
+    "atob": "^2.0.3",
     "aws-sdk": "^2.69.0",
+    "axios": "^0.17.1",
+    "serverless-plugin-tracing": "^2.0.0",
     "uuid": "^3.1.0",
     "winston": "*",
     "yaml-js": "^0.2.0"
@@ -33,6 +36,7 @@
   },
   "scripts": {
     "test": "tsc && ./node_modules/.bin/mocha --reporter spec --recursive",
+    "deploy": "./build",
     "build": "webpack"
   }
 }
